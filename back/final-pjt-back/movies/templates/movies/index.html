@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h1>Movies</h1>
+  {% for movie in movies %}
+      <div class="d-flex flex-wrap justify-content-center">
+        <div class="card" style="width: 18rem;">
+          <img src="{{movie.poster_path}}" class="card-img-top" alt="{{poster_path}}">
+          <div class="card-body">
+            <h5 class="card-title">{{movie.title}}</h5>
+            {% if movie.overview %}
+              <p class="card-text">{{movie.overview}}</p>
+            {% else %}
+              <p class="card-text">༼ つ ◕_◕ ༽つ<br>
+                영화 줄거리가 아직 기록중 입...<br>
+                ༼ つ ◕_◕ ༽つ
+              </p>
+            {% endif %}
+          </div>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item">관객 수 : {{movie.popularity}}</li>
+            <li class="list-group-item">평점 : {{movie.vote_average}}</li>
+            
+            <li class="list-group-item">장르 : 
+              {% for genre in movie.genres.all %} 
+              {{genre.name}},
+              {% endfor %}
+            </li>
+              <li class="list-group-item">개봉일자 : {{movie.release_date}}</li>
+            <li class="list-group-item">좋아요 갯수 : {{movie.like_users.count}}</li>
+          </ul>
+        </div>
+      </div>
+      <hr>
+  {% endfor %}
+{% endblock %}
+
+

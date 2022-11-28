@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% block content %}
+<!-- 
+    [0] : 좋아요 수
+    [1] : 평점
+    [2] : 제목
+    [3] : 이미지 포스터
+    [4] : 장르들
+-->
+<h1>recommended</h1>
+{% for movie in new_lst%}
+    <!-- <div class="d-flex flex-wrap justify-content-center">
+      <div class="card" style="width: 18rem;">
+        <img src="{{movie.3}}" class="card-img-top" alt="{{movie.3}}">
+        <div class="card-body">
+          <h5 class="fs-3 card-title">{{movie.2}}</h5>
+        </div>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">평점 : {{movie.1}}</li>
+          <li class="list-group-item">장르 : 
+            {% for genre in movie.4 %} 
+              {{genre.name}},
+            {% endfor %}
+          </li>
+          <li class="list-group-item">좋아요 갯수 : {{movie.0}}</li>
+        </ul>
+      </div>
+    </div>
+    <hr> -->
+{% endfor %}
+{% endblock %}
